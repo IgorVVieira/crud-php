@@ -11,10 +11,14 @@ class Conexao {
     public static function getInstance() {
         //Se n existir a instância, será criado uma nova
         // Self acessa atributos e métodos estáticos de uma classe
-        if(!isset(self::$instance)) {
-            self::$instance = new \PDO('mysql:host=localhost;dbname=crud;charset=utf8','root','');
-        }
+        try {
+            if(!isset(self::$instance)) {
+                self::$instance = new \PDO('mysql:host=localhost;dbname=crud;charset=utf8','root','');
+            }
+            return self::$instance;
 
-        return self::$instance;
+        } catch (\PDOException $e) {
+           echo "Erro de conexão do banco de dados {$e->getMessage()}";
+        }
     }
 }

@@ -7,11 +7,13 @@ class Produto {
     private $id;
     private $nome;
     private $descricao;
+    private $valor;
 
-    public function __construct($id, $nome, $descricao) {
+    public function __construct($id, $nome, $descricao, $valor) {
         $this->id = $id;
         $this->nome = $nome;
         $this->descricao = $descricao;
+        $this->valor = $valor;
     }
 
     public function getId() {
@@ -34,5 +36,11 @@ class Produto {
         $this->descricao = $descricao;
     }
 
-    
+    public function getValor() {
+        return $this->valor;
+    }
+
+    public function setValor($valor) {
+        $this->valor = $valor;
+    } 
 }
