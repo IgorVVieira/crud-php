@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-// Padrão Simgleton, tendo apenas uma instância da classe
+// Padrão Singleton, tendo apenas uma instância da classe
 
 class Conexao {
     

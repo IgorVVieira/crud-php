@@ -1,4 +1,6 @@
 {
+    "name": "vendor/crud-php",
+    "description": "Crud simples em PHP, pdo e singleton",
     "autoload": {
         "psr-4": {
             "App\\": "App/"
