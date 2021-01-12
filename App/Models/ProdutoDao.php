@@ -1,10 +1,12 @@
-<?php 
+<?php
 
 namespace App\Models;
 
-class ProdutoDao {
+class ProdutoDao
+{
 
-    public function create(Produto $produto) {
+    public function create(Produto $produto)
+    {
         //? = bindValues
         $sql = 'INSERT INTO produtos (nome, descricao, valor) VALUES (? , ?, ?)';
 
@@ -16,15 +18,16 @@ class ProdutoDao {
 
         $stmt->execute();
     }
-    
-    public function read() {
+
+    public function read()
+    {
         $sql = 'SELECT * FROM produtos';
-        
+
         $stmt = Conexao::getInstance()->prepare($sql);
         $stmt->execute();
 
         //Verifica se retornou pelo menos um registro
-        if($stmt->rowCount() > 0) {
+        if ($stmt->rowCount() > 0) {
             //Método que retorna array com todos registros
             $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
             return $result;
@@ -32,7 +35,8 @@ class ProdutoDao {
         return [];
     }
 
-    public function update(Produto $produto) {
+    public function update(Produto $produto)
+    {
         $sql = 'UPDATE produtos SET nome = ?, descricao = ?, valor = ? WHERE id = ?';
 
         $stmt = Conexao::getInstance()->prepare($sql);
@@ -45,7 +49,8 @@ class ProdutoDao {
         $stmt->execute();
     }
 
-    public function delete($id) {
+    public function delete($id)
+    {
         $sql = 'DELETE FROM produtos WHERE id = ?';
 
         $stmt = Conexao::getInstance()->prepare($sql);
